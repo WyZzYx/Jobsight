@@ -1,0 +1,11 @@
+.git
+.idea
+.vscode
+.gradle
+build
+out
+target
+__pycache__/
+*.py[cod]
+.env
+*.log

@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+out/
+
+# Gradle / Java
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Logs
+*.log
+*.tmp
+
+# Spring / config (keep real secrets out of Git)
+application-*.local.yml
+
+# Python (resume_analyzer)
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+dist/
+build/
+.eggs/
+*.egg-info/
+
+# Docker / env
+.env
+.env.*.local
+docker-compose.override*.yml
+
+# Tests / coverage
+.pytest_cache/
+coverage/
+*.coverage
+
+# OS junk
+Thumbs.db

@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:postgres}:${DB_PORT:5432}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+server:
+  port: 8080
+
+logging:
+  level:
+    ai.jobsight: INFO
+    org.springframework.web: INFO
+
+resilience4j:
+  retry:
+    instances:
+      adzuna:
+        max-attempts: 3
+        wait-duration: 700ms
+  circuitbreaker:
+    instances:
+      adzuna:
+        sliding-window-size: 20
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+
+providers:
+  adzuna:
+    enabled: true
+    country: ${ADZUNA_COUNTRY:pl}
+    appId: ${ADZUNA_APP_ID:}
+    appKey: ${ADZUNA_APP_KEY:}
+    baseUrl: https://api.adzuna.com/v1/api/jobs
+resume:
+  analyzer:
+    baseUrl: http://resume-analyzer:9000

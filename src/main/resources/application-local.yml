@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5431/jobsight_app
+    username: jobsight
+    password: jobsight
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+resume:
+  analyzer:
+    baseUrl: http://localhost:9000
+
