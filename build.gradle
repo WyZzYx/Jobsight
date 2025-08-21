@@ -25,6 +25,8 @@ dependencies {
 
     // Resilience4j annotations @Retry, @CircuitBreaker
     implementation "io.github.resilience4j:resilience4j-spring-boot3:2.2.0"
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
 
     // DB driver
     runtimeOnly "org.postgresql:postgresql:42.7.7"

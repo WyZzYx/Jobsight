@@ -16,4 +16,5 @@ public class ResumeAnalyzerConfig {
     WebClient resumeWebClient(@Value("${resume.analyzer.baseUrl}") String baseUrl) {
         return WebClient.builder().baseUrl(baseUrl).build();
     }
+
 }
