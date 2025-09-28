@@ -1,5 +1,6 @@
 
 
+
 # JobSight — AI-powered job search & career roadmaps
 
 **JobSight** helps candidates (and recruiters) move faster: search real jobs, compare roles side-by-side, generate **AI study roadmaps** from your goals or résumé, and save everything to your profile. It’s a full-stack, production-style app built with modern tooling and security best practices.
