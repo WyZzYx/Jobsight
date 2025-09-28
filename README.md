@@ -97,7 +97,6 @@ Frontend’s Vite dev server proxies `/api` → `http://localhost:8080` and send
 ## 🖼️ Screenshots
 
 
-```md
 ### Dashboard
 ![Dashboard](docs/screenshots/dashboard.png)
 
@@ -125,7 +124,6 @@ Frontend’s Vite dev server proxies `/api` → `http://localhost:8080` and send
 ### Profile
 ![Cabinet](docs/screenshots/cabinet.png)
 
-```
 
 ---
 
