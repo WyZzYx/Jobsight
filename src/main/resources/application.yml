@@ -1,6 +1,12 @@
+auth:
+  jwt:
+    secret: "longlonglonglonglonglongsecretsecretsecret"
+    issuer: "jobsight"
+    ttl-min: 43200
+
 spring:
   datasource:
-    url: jdbc:postgresql://${DB_HOST:postgres}:${DB_PORT:5432}/${POSTGRES_DB}
+    url: jdbc:postgresql://${DB_HOST:}:${DB_PORT:}/${POSTGRES_DB}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
   jpa:
@@ -10,8 +16,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
 server:
   port: 8080
+ollama:
+  base-url: http://ollama:11434
+  model: llama3.2:3b
 
 logging:
   level:
