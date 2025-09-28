@@ -1,7 +1,0 @@
-Vitalii Koltok
-Backend Java Developer
-
-Skills: Java, Spring Boot, REST, PostgreSQL, Docker, Jenkins
-Experience: Built microservices with Java 17 and Spring Boot, CI/CD with Jenkins
-Education: BSc Computer Science
-TXT
