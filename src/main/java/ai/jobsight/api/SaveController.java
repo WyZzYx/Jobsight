@@ -30,7 +30,6 @@ public class SaveController {
     private Long uid(Authentication a){ return (Long)a.getPrincipal(); }
 
 
-    // --- Searches ---
     @PostMapping("/searches")
     public ResponseEntity<?> saveSearch(@AuthenticationPrincipal Long userId,
                                         @RequestBody SavedSearch s) {
@@ -57,7 +56,6 @@ public class SaveController {
         return ResponseEntity.noContent().build();
     }
 
-    // --- Compares ---
     @PostMapping("/compares")
     public ResponseEntity<?> saveCompare(@AuthenticationPrincipal Long userId,
                                          @RequestBody SavedCompare c) {
@@ -84,7 +82,6 @@ public class SaveController {
         return ResponseEntity.noContent().build();
     }
 
-    // --- Quiz results ---
     @PostMapping("/quiz")
     public ResponseEntity<?> saveQuiz(@AuthenticationPrincipal Long userId,
                                       @RequestBody SavedQuizResult q) {
@@ -102,7 +99,6 @@ public class SaveController {
         return quizzes.findByUserId(userId);
     }
 
-    // Roadmaps
     @PostMapping("/roadmaps")
     public SavedRoadmap saveRoadmap(@RequestBody Map<String, Object> body, Authentication a) {
         var r = new SavedRoadmap();
@@ -112,10 +108,8 @@ public class SaveController {
         r.setTitle((String) body.getOrDefault("title", "Roadmap"));
         r.setSource((String) body.getOrDefault("source", "manual"));
 
-        // planText is plain text
         r.setPlanText((String) body.get("planText"));
 
-        // plan can be an object or a JSON string
         Object plan = body.get("plan");
         if (plan instanceof Map<?, ?> m) {
             @SuppressWarnings("unchecked")
@@ -126,7 +120,6 @@ public class SaveController {
                 Map<String, Object> parsed = mapper.readValue(s, new TypeReference<>() {});
                 r.setPlanJson(parsed);
             } catch (Exception ignored) {
-                // If it’s not valid JSON, leave planJson null; planText still persisted
             }
         }
         return roadmaps.save(r);

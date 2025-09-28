@@ -1,4 +1,3 @@
-// src/main/java/ai/jobsight/security/JwtService.java
 package ai.jobsight.security;
 
 import java.time.Instant;

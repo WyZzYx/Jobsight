@@ -12,7 +12,6 @@ public class PreciseRoadmapRequest {
     private String timelineMonths;   // e.g. "4"
     private String country;          // e.g. "PL"
 
-    // Optional extras you may add later
     private Integer age;
     private String major;
     private String experience;       // free text

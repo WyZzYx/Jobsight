@@ -1,4 +1,11 @@
 services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    restart: unless-stopped
   postgres:
     image: postgres:15
     environment:
@@ -23,14 +30,39 @@ services:
     depends_on:
       - resume-analyzer
       - postgres
+      - ollama
     environment:
-      DB_HOST: postgres           # <— use service name
-      DB_PORT: 5432               # <— container port
+      DB_HOST: postgres
+      DB_PORT: 5432
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+
+      JWT_SECRET: longlonglonglonglonglongsecretsecretsecret
+      JWT_ISSUER: jobsight
+      AUTH_JWT_TTL_MIN: 43200
+
+
+      ADZUNA_APP_ID: ${ADZUNA_APP_ID}
+      ADZUNA_APP_KEY: ${ADZUNA_APP_KEY}
+      ADZUNA_COUNTRY: ${ADZUNA_COUNTRY:-pl}
+
+      OLLAMA_PROVIDER: ollama
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: llama3.2:3b
+
       RESUME_ANALYZER_BASE_URL: http://resume-analyzer:9000
-    ports: ["8080:8080"]
+    ports:
+      - "8080:8080"
+  frontend:
+    build:
+      context: ./frontend/jobsight-frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
 
 volumes:
   postgres-data:
+  ollama:

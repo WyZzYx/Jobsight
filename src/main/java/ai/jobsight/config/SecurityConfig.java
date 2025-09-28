@@ -1,11 +1,9 @@
-// src/main/java/ai/jobsight/config/SecurityConfig.java
 package ai.jobsight.config;
 
 import ai.jobsight.security.JwtAuthFilter;
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;

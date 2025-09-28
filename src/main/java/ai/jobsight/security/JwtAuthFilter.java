@@ -1,4 +1,3 @@
-// src/main/java/ai/jobsight/security/JwtAuthFilter.java
 package ai.jobsight.security;
 
 import jakarta.servlet.FilterChain;
@@ -32,7 +31,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         String token = null;
 
-        // 1) Try HttpOnly cookie 'jid'
         Cookie[] cookies = req.getCookies();
         if (cookies != null) {
             for (Cookie c : cookies) {
@@ -43,7 +41,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             }
         }
 
-        // 2) Fallback to Authorization: Bearer <token> (useful for curl / tests)
         if (token == null) {
             String authz = req.getHeader("Authorization");
             if (authz != null && authz.startsWith("Bearer ")) {
@@ -64,9 +61,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 );
                 SecurityContextHolder.getContext().setAuthentication(auth);
             } catch (JwtException | IllegalArgumentException e) {
-                // invalid/expired token -> leave unauthenticated
-                // log at debug level, not to spam
-                // log.debug("JWT decode failed: {}", e.toString());
+
             }
         }
 

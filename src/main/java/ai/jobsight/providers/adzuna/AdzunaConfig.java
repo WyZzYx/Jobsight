@@ -9,10 +9,5 @@ import org.springframework.web.client.RestClient;
 @EnableConfigurationProperties(AdzunaProperties.class)
 public class AdzunaConfig {
 
-//    @Bean
-//    RestClient adzunaRestClient(AdzunaProperties props) {
-//        return RestClient.builder()
-//                .baseUrl(props.getBaseUrl())
-//                .build();
-//    }
+
 }

@@ -1,4 +1,3 @@
-// src/main/java/ai/jobsight/save/SavedCompare.java
 package ai.jobsight.save;
 
 import jakarta.persistence.*;

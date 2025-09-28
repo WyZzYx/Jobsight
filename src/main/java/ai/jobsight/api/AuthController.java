@@ -42,8 +42,8 @@ public class AuthController {
 
         ResponseCookie cookie = ResponseCookie.from("jid", token)
                 .httpOnly(true)
-                .secure(false)           // true only behind HTTPS
-                .sameSite("Lax")         // works through the proxy
+                .secure(false)
+                .sameSite("Lax")
                 .path("/")
                 .maxAge(Duration.ofDays(7))
                 .build();
@@ -61,7 +61,6 @@ public class AuthController {
 
         String token = jwt.issue(u.getId(), u.getEmail()); // <- your existing utility
 
-        // set HttpOnly cookie (unchanged)
         ResponseCookie cookie = ResponseCookie.from("jid", token)
                 .httpOnly(true)
                 .sameSite("Lax")
@@ -73,7 +72,7 @@ public class AuthController {
                 .header(HttpHeaders.SET_COOKIE, cookie.toString())
                 .body(Map.of(
                         "user", Map.of("id", u.getId(), "email", u.getEmail()),
-                        "token", token // <---- IMPORTANT (extra for dev)
+                        "token", token //
                 ));
     }
 
@@ -88,7 +87,6 @@ public class AuthController {
 
     @PostMapping("/logout")
     public ResponseEntity<?> logout() {
-        // if cookie-based JWT, set-expired cookie; if stateless, just 200
         return ResponseEntity.ok(Map.of("ok", true));
     }
 }

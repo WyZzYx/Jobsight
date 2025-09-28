@@ -70,7 +70,6 @@ public class AdzunaService {
         try {
             return restTemplate.getForObject(url, String.class);
         } catch (HttpStatusCodeException e) {
-            // Bubble up real status + body so the frontend can show a useful message
             throw new RuntimeException(
                     "Adzuna API " + e.getStatusCode() + ": " + e.getResponseBodyAsString(), e
             );

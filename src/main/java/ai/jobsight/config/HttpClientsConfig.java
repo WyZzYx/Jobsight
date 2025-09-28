@@ -1,4 +1,3 @@
-// src/main/java/ai/jobsight/config/HttpClientsConfig.java
 package ai.jobsight.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -27,9 +26,5 @@ public class HttpClientsConfig {
         return b.baseUrl(base).build();
     }
 
-//    @Bean // used by precise roadmap (Ollama)
-//    public RestClient llmRestClient(RestClient.Builder b,
-//                                    @Value("${LLM_BASE_URL:http://ollama:11434}") String base) {
-//        return b.baseUrl(base).build();
-//    }
+
 }

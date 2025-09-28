@@ -19,5 +19,5 @@ public class JobPostingDTO {
     public String currency;
     public Instant postedAt;
     public String url;
-    public String provider; // "ADZUNA", etc.
+    public String provider;
 }
